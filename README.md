@@ -4,6 +4,8 @@
 - [Problem 1: Palindrome Number ](#problem-1-palindrome-number)
 - [Problem 2: Reverse Integer](#problem-2-reverse-integer)
 - [Problem 3: Roman to Integer](#problem-3-roman-to-integer)
+- [Problem 4: Rotate Image](#problem-4-rotate-image)
+- [Problem 5:  Number of 1 Bits](#problem-5--number-of-1-bits)
 
 
 
@@ -159,7 +161,8 @@ public:
 ---
 
 ## Brief Description
- 
+- **input --> "III" -->  output --> 3**
+ - **input --> "MCMXCIV" -->  output --> 1994**
 
 ---
 ## Core Mathematical Idea
@@ -170,7 +173,7 @@ public:
 
 ---
 ## Note
- - **The Time Complexity is **O(log (x))****
+ - **The Time Complexity is **O(n)****
  - **The Space Complexity is O(1)**
 
 ---
@@ -212,6 +215,128 @@ public:
     
 };
 
+
+```
+---
+## Problem 4: Rotate Image
+
+- **Name**: ***48.  Rotate Image***
+- **Link**: [Problem Link](https://leetcode.com/problems/rotate-image/description/)
+- **Category**: ****Math / Matrix / Array****
+- **Level**:  *****Medium*****
+
+---
+
+## Brief Description
+- ***rotate the image by 90 degrees***
+- **Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]**
+- **Output: [[7,4,1],[8,5,2],[9,6,3]]**
+---
+## Core Mathematical Idea
+
+---
+## Solution steps
+   - ***First, swap the values diagonally, then swap the first value of each row with the last value of the same row.***
+
+---
+## Note
+ - **The Time Complexity is **O(n^2)****
+ - **The Space Complexity is O(1)**
+
+---
+
+## Code in [ C++]
+
+### Code
+
+
+
+```cpp
+class Solution {
+public:
+
+
+         void Swapp(int& V1, int& V2) {
+            if (&V1 == &V2) return; //if same Address return 
+            V1 = V1 ^ V2;
+            V2 = V1 ^ V2;
+            V1 = V1 ^ V2;
+         }
+        
+ void rotate(vector<vector<int>>& matrix) {
+     int row = matrix.size();
+     for (int i = 0; i < row; i++) {
+         for (int j = 0; j <= i; j++) {
+             Swapp(matrix[i][j], matrix[j][i]);//swap diagonally
+
+         }
+     }
+     for (int i = 0; i < row; i++) {
+         reverse(matrix[i].begin(), matrix[i].end());
+         //swap the first value of each row with the last value of the same row.
+     }
+    }
+};
+
+
+
+```
+---
+## Problem 5:  Number of 1 Bits
+
+- **Name**: ***191.   Number of 1 Bits***
+- **Link**: [Problem Link](https://leetcode.com/problems/number-of-1-bits/description/)
+- **Category**: ****Divide and Conquer / Bit Manipulation****
+- **Level**:  *****Easy*****
+
+---
+
+## Brief Description
+- **write a function that returns the number of set bits [1] in its binary**
+- **Input: n = 11**
+    - **Output: 3**
+- **Input: n =128**
+    - **Output: 1**
+
+## Core Mathematical Idea
+- **- Num % 2 = last Bit (if Number EVEN  last bit = 0 OR Number ODD last bit =1)**
+- **Num  / 2 = Delete last bit**
+
+---
+## Solution steps
+   
+ - **using Num & 1 = last Bit   {return 0 or 1}** 
+ - **using Num >> 1 = Delete last Bit [shift right]**
+
+
+---
+## Note
+ - **The Time Complexity is **O(log(n))****
+ - **The Space Complexity is O(1)**
+
+---
+
+## Code in [ C++]
+
+### Code
+
+
+
+```cpp
+class Solution {
+public:
+    int hammingWeight(int n) {
+        int countt=0;
+        while(n !=0){
+            if (n & 1){ //return last Bit
+                countt++;
+            }
+            n=n >> 1;// Delet last Bit
+        }
+        return countt;
+        
+    }
+};
 
 ```
 ---
