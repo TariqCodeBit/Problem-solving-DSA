@@ -6,7 +6,7 @@
 - [Problem 3: Roman to Integer](#problem-3-roman-to-integer)
 - [Problem 4: Rotate Image](#problem-4-rotate-image)
 - [Problem 5:  Number of 1 Bits](#problem-5--number-of-1-bits)
-
+- [Problem 11:  Two Sum II -sorted](#problem-11--two-sum-ii--sorted)
 
 
 
@@ -335,6 +335,71 @@ public:
         }
         return countt;
         
+    }
+};
+
+```
+---
+## Problem 11:  Two Sum II -sorted
+
+- **Name**: ***167. Two Sum II - Input Array Is Sorted***
+- **Link**: [Problem Link](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/)
+- **Category**: ****Array/Two Pointers/Binary Search****
+- **Level**:  *****Medium*****
+
+---
+Return the indices of the two numbers, index1 and index2, added by one as an integer array [index1, index2] of length 2.
+## Brief Description
+- **return the indices of the tow numbers, index1 and index2, added = target**
+- **Input: numbers = [2,7,11,15], target = 9**
+    - **Output: [1,2]**
+- **numbers = [2,3,4], target = 6**
+    - **Output: [1,3]**
+
+## Core Mathematical Idea
+
+
+---
+## Solution steps
+   
+- **If the sum is too large, move right left to try a smaller number.**
+- **If the sum is too small, move left right to try a larger number.**
+- **If the sum equals target, return the indices.**
+
+
+---
+## Note
+ - **The Time Complexity is **O(n)****
+ - **The Space Complexity is O(1)**
+
+---
+
+## Code in [ C++]
+
+### Code
+
+
+
+```cpp
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& numbers, int target) {
+
+        int left=0;
+        int right=numbers.size()-1;
+        while(true){
+            if(numbers[left]+numbers[right] > target ){
+                right--;
+            } 
+             if(numbers[left]+numbers[right] < target ){
+             left++;
+            }
+            if(numbers[left]+numbers[right] == target){
+                return {left+1 , right+1};
+            }
+        }
+    return {};
+
     }
 };
 
