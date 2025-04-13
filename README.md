@@ -7,6 +7,8 @@
 - [Problem 4: Rotate Image](#problem-4-rotate-image)
 - [Problem 5:  Number of 1 Bits](#problem-5--number-of-1-bits)
 - [Problem 11:  Two Sum II -sorted](#problem-11--two-sum-ii--sorted)
+- [Problem 12:  Best Time to Buy & sell stock](#problem-12--best-time-to-buy--sell-stock)
+- [Problem 13:  Valid Anagram](#problem-13--valid-anagram)
 
 
 
@@ -348,7 +350,7 @@ public:
 - **Level**:  *****Medium*****
 
 ---
-Return the indices of the two numbers, index1 and index2, added by one as an integer array [index1, index2] of length 2.
+
 ## Brief Description
 - **return the indices of the tow numbers, index1 and index2, added = target**
 - **Input: numbers = [2,7,11,15], target = 9**
@@ -405,4 +407,102 @@ public:
 
 ```
 ---
-    
+ ## Problem 12:  Best Time to Buy & sell stock
+
+- **Name**: ***121. Best Time to Buy and Sell Stock***
+- **Link**: [Problem Link](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/)
+- **Category**: ****Array / Dynamic Programming****
+- **Level**:  *****Easy*****
+
+---
+
+## Brief Description
+- **You need to buy the stock on one day and sell it on a later day to make the highest possible profit. Profit is the difference between the selling price and the buying price (sell price - buy price).**
+
+## Core Mathematical Idea
+
+
+---
+## Solution steps
+   
+
+
+---
+## Note
+ - **The Time Complexity is **O(n)****
+ - **The Space Complexity is O(1)**
+
+---
+
+## Code in [ C++]
+
+### Code
+
+
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+       int Buy=prices[0];
+       int profit=0;
+        for(int i =0;i < prices.size();i++){
+           if(Buy > prices[i])
+            Buy=prices[i];
+            else if(prices[i] - Buy > profit)
+                profit=prices[i]-Buy;
+        }
+        return profit;
+    }
+};
+
+```
+---
+## Problem 13:  Valid Anagram
+- **Name**: ***242. Valid Anagram***
+- **Link**: [Problem Link](https://leetcode.com/problems/valid-anagram/description/)
+- **Category**: ****Hash Table / String / Sorting****
+- **Level**:  *****Easy*****
+
+---
+
+## Brief Description
+ - **Given two strings s and t, return true if t is an anagram of s, and false otherwise.**
+ - **Input: s = "anagram", t = "nagaram"**
+      - **Output: true**
+ - **Input: s = "rat", t = "car"**
+
+    - **Output: false**
+---
+## Core Mathematical Idea
+
+---
+## Solution steps
+ 
+---
+## Note
+ - **The Time Complexity is O(N log (N) )**
+  - **The Space Complexity is O(1)**
+
+---
+
+## Code in [ C++]
+
+### Code
+
+
+
+```cpp
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        sort(s.begin(), s.end());
+        sort(t.begin(), t.end());
+        if(s==t)
+        return true;
+        else 
+        return false;
+    }
+};
+```
+-----
