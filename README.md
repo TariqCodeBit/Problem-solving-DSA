@@ -6,6 +6,12 @@
 - [Problem 3: Roman to Integer](#problem-3-roman-to-integer)
 - [Problem 4: Rotate Image](#problem-4-rotate-image)
 - [Problem 5:  Number of 1 Bits](#problem-5--number-of-1-bits)
+- [Problem 6: Reverse String](#problem-6-reverse-string)
+- [Problem 7: Two Sum](#problem-7-two-sum)
+
+
+
+
 - [Problem 11:  Two Sum II -sorted](#problem-11--two-sum-ii--sorted)
 - [Problem 12:  Best Time to Buy & sell stock](#problem-12--best-time-to-buy--sell-stock)
 - [Problem 13:  Valid Anagram](#problem-13--valid-anagram)
@@ -343,6 +349,181 @@ public:
 };
 
 ```
+---
+## Problem 6: Reverse String
+
+- **Name**: ***344. Reverse String***
+- **Link**: [Problem Link](https://leetcode.com/problems/reverse-string/description/)
+- **Category**: ****Two Pointers / String****
+- **Level**:  *****Easy*****
+
+---
+
+## Brief Description
+- **Write a function that reverses a string. The input string is given as an array of characters s.**
+ - **Input: s = ["h","e","l","l","o"]**
+    - **Output: ["o","l","l","e","h"]**
+ - **Input: s = ["H","a","n","n","a","h"]**
+    - **Output: ["h","a","n","n","a","H"]**
+ 
+## Core Mathematical Idea
+
+---
+## Solution steps
+   
+ 
+
+---
+## Note
+
+
+## Code in [ C++]
+
+### Code
+
+
+
+```cpp
+class Solution { // sloution one
+public:
+//The Time Complexity is O(n)
+//The Space Complexity is O(n)
+    
+    void reverseString(vector<char>& s) {
+      vector<char> m = s;
+      int n=m.size()-1;
+            for (int i = n; i >=0; i--){
+                s[n-i] = m[i];
+
+          }
+    }
+};
+//-----------------
+
+class Solution{ // sloution Two best
+public:
+//The Time Complexity is O(n)
+//The Space Complexity is O(1)
+void reverseString(vector<char>&s){
+   int left=0;
+   int right=s.size()-1;
+while(left<right){
+
+    swap(s[left],s[right]);
+
+    left++;
+    right--;
+
+        }
+    }
+};
+
+```
+## Problem 7: Two Sum
+
+- **Name**: ***1. Two Sum***
+- **Link**: [Problem Link](https://leetcode.com/problems/two-sum/description/)
+- **Category**: ****Array / Hash Table****
+- **Level**:  *****Easy*****
+
+---
+
+## Brief Description
+- **Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.**
+
+- **Input: nums = [2,7,11,15], target = 9**
+    - **Output: [0,1]**
+- **Input: nums = [3,2,4], target = 6**
+    - **Output: [1,2]**
+
+ 
+## Core Mathematical Idea
+
+---
+## Solution steps
+   
+ 
+
+---
+## Note
+
+
+## Code in [ C++]
+
+### Code
+
+
+
+```cpp
+class Solution {// sloution one
+public:
+//The Time Complexity is O(n²)
+//The Space Complexity is O(1)
+
+    vector<int> twoSum(vector<int>& nums, int target) {
+     
+        int len=nums.size();
+        for(int i =0;i < len ; i++){
+        for(int j = i +1;j <len;j++){
+            if(nums[i]+nums[j]==target)
+             return {i,j};
+            
+            
+        }
+        }
+        return {};
+        
+    }
+};
+//-----------------
+
+
+
+class Solution { //solution Two
+public:
+//The Time Complexity is O(n)
+//The Space Complexity is O(n)
+
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int, int> numMap; // Maps number to its index
+        for (int i = 0; i < nums.size(); i++) {
+            int complement = target - nums[i];
+            if (numMap.find(complement) != numMap.end()) {
+                return {numMap[complement], i};
+            }
+            numMap[nums[i]] = i;
+        }
+        return {};
+    }
+}
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ---
 ## Problem 11:  Two Sum II -sorted
 
