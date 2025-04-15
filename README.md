@@ -9,6 +9,8 @@
 - [Problem 11:  Two Sum II -sorted](#problem-11--two-sum-ii--sorted)
 - [Problem 12:  Best Time to Buy & sell stock](#problem-12--best-time-to-buy--sell-stock)
 - [Problem 13:  Valid Anagram](#problem-13--valid-anagram)
+- [Problem 14: Fizz Buzz](#problem-14-fizz-buzz)
+- [Problem 15: Merge String Alternately](#problem-15-merge-string-alternately)
 
 
 
@@ -506,3 +508,120 @@ public:
 };
 ```
 -----
+## Problem 14: Fizz Buzz
+- **Name**: ***412. Fizz Buzz***
+- **Link**: [Problem Link](https://leetcode.com/problems/fizz-buzz/description/)
+- **Category**: ****Math / String / Simulation***
+- **Level**:  *****Easy*****
+
+---
+
+## Brief Description
+- **answer[i] == "FizzBuzz" if i is divisible by 3 and 5.**
+- **answer[i] == "Fizz" if i is divisible by 3.**
+- **answer[i] == "Buzz" if i is divisible by 5.**
+- **answer[i] == i (as a string) if none of the above conditions are true.**
+ 
+
+---
+## Core Mathematical Idea
+
+---
+## Solution steps
+ 
+---
+## Note
+ - **The Time Complexity is O (N)**
+  - **The Space Complexity is O(N)**
+
+---
+
+## Code in [ C++]
+
+### Code
+
+
+
+```cpp
+class Solution {
+public:
+    vector<string> fizzBuzz(int n) {
+        vector<string> ans;
+        for(int i =1;i <= n;i++){
+            if( ! (i % 15))
+            ans.push_back("FizzBuzz");
+
+            else if ( ! (i % 3))
+            ans.push_back("Fizz");
+            
+            else if ( ! (i % 5))
+            ans.push_back("Buzz");
+
+            else 
+            ans.push_back(to_string(i));
+        }
+        return ans;
+        
+    }
+};
+
+```
+-----
+## Problem 15: Merge String Alternately
+- **Name**: ***1768. Merge Strings Alternately***
+- **Link**: [Problem Link](https://leetcode.com/problems/merge-strings-alternately/description/?envType=study-plan-v2&envId=leetcode-75)
+- **Category**: ****Two Pointers / String***
+- **Level**:  *****Easy*****
+
+---
+
+## Brief Description
+- **Input: word1 = "ab", word2 = "pqrs"**
+    - **Output: "apbqrs"**
+- **Input: word1 = "abcd", word2 = "pq"**
+    - **Output: "apbqcd"**
+
+
+---
+## Core Mathematical Idea
+
+---
+## Solution steps
+ 
+---
+## Note
+ - **The Time Complexity is O (N)**
+  - **The Space Complexity is O(N)**
+
+---
+
+## Code in [ C++]
+
+### Code
+
+
+
+```cpp
+class Solution {
+public:
+    string mergeAlternately(string word1, string word2) {
+        string merged;
+        int left=0;
+        
+
+        while( left < word1.length() || left < word2.length()){
+            if( left < word1.length() )
+            {
+                 merged+= word1[left] ;
+            }
+            if(left < word2.length()){
+                merged+=word2[left];
+            }
+          left++;
+        }
+        return merged;
+        
+    }
+};
+```
+---
