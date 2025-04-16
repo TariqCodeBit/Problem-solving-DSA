@@ -17,6 +17,7 @@
 - [Problem 13:  Valid Anagram](#problem-13--valid-anagram)
 - [Problem 14: Fizz Buzz](#problem-14-fizz-buzz)
 - [Problem 15: Merge String Alternately](#problem-15-merge-string-alternately)
+- [Problem 16: Search a 2D Matrix](#problem-16-search-a-2d-matrix)
 
 
 
@@ -802,6 +803,60 @@ public:
         }
         return merged;
         
+    }
+};
+```
+---
+## Problem 16: Search a 2D Matrix
+- **Name**: ***74. Search a 2D Matrix***
+- **Link**: [Problem Link](https://leetcode.com/problems/search-a-2d-matrix/description/?envType=problem-list-v2&envId=matrix)
+- **Category**: ****Array / Binary Search / Matrix****
+- **Level**:  *****Medium*****
+
+---
+
+## Brief Description
+- **Given an integer target, return true if target is in matrix or false otherwise.**
+- **Input: matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3**
+   - **Output: true**
+- **Input: matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 13**
+   - **Output: false**
+
+---
+## Core Mathematical Idea
+
+---
+## Solution steps
+ 
+---
+## Note
+ - **The Time Complexity is O(N∗M)**
+  - **The Space Complexity is O(1)**
+
+---
+
+## Code in [ C++]
+
+### Code
+
+
+
+```cpp
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+          vector<vector<int>>::iterator ite;
+
+  for (ite = matrix.begin(); ite != matrix.end(); ite++) {
+      vector<int> ::iterator col;
+      for (col = ite->begin(); col != ite->end(); col++) {
+
+          if (*col == target)
+              return true;
+          
+      }
+   }
+  return false;
     }
 };
 ```
