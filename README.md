@@ -18,6 +18,7 @@
 - [Problem 14: Fizz Buzz](#problem-14-fizz-buzz)
 - [Problem 15: Merge String Alternately](#problem-15-merge-string-alternately)
 - [Problem 16: Search a 2D Matrix](#problem-16-search-a-2d-matrix)
+- [Problem 17: Factorial Trailing Zeroes](#problem-17-factorial-trailing-zeroes)
 
 
 
@@ -857,6 +858,63 @@ public:
       }
    }
   return false;
+    }
+};
+```
+---
+## Problem 17: Factorial Trailing Zeroes
+- **Name**: ***172. Factorial Trailing Zeroes***
+- **Link**: [Problem Link](https://leetcode.com/problems/factorial-trailing-zeroes/description/)
+- **Category**: ****Math****
+- **Level**:  *****Medium*****
+
+---
+
+## Brief Description
+ - **Given an integer n, return the number of trailing zeroes in n!.**
+  - **Example 1:**
+
+     - **Input: n = 3**
+       -  **Output: 0**
+            - **Explanation: 3! = 6, no trailing zero.**
+  - **Example 2:**
+
+    - **Input: n = 5**
+      - **Output: 1**
+         - **Explanation: 5! = 120, one trailing zero.**
+
+
+---
+## Core Mathematical Idea
+- **The number of trailing zeros in 𝑛!  equals the number of factors of  5 in the prime factorization of 𝑛! , because the factors of 5 are the limiting facto(bottleneck) compared to the factors of 2. The formula:**
+
+---
+## Solution steps
+ 
+---
+## Note
+ - **The Time Complexity is O(log N)**
+  - **The Space Complexity is O(1)**
+
+---
+
+## Code in [ C++]
+
+### Code
+
+
+
+```cpp
+class Solution {
+public:
+    int trailingZeroes(int n) {
+        if(n <= 0) return 0;
+
+        int count = 0;
+        for (short i = 5; i <= n; i *= 5) {
+            count += n / i;
+        }
+        return count;
     }
 };
 ```
