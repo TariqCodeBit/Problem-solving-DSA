@@ -19,7 +19,7 @@
 - [Problem 15: Merge String Alternately](#problem-15-merge-string-alternately)
 - [Problem 16: Search a 2D Matrix](#problem-16-search-a-2d-matrix)
 - [Problem 17: Factorial Trailing Zeroes](#problem-17-factorial-trailing-zeroes)
-
+- [Problem 18: Reverse Words in a String](#problem-18-reverse-words-in-a-string)
 
 
 
@@ -916,6 +916,78 @@ public:
         }
         return count;
     }
+};
+```
+---
+
+## Problem 18: Reverse Words in a String
+- **Name**: ***151. Reverse Words in a String***
+- **Link**: [Problem Link](https://leetcode.com/problems/reverse-words-in-a-string/description/)
+- **Category**: ****Two Pointers / String****
+- **Level**:  *****Medium*****
+
+---
+
+## Brief Description
+ - **Given an input string s, reverse the order of the words.**
+ - **Input: s = "the sky is blue"**
+    - **Output: "blue is sky the"**
+
+---
+## Core Mathematical Idea
+
+---
+## Solution steps
+ 
+---
+## Note
+ - **The Time Complexity is O(N)**
+  - **The Space Complexity is O(N)**
+
+---
+
+## Code in [ C++]
+
+### Code
+
+
+
+```cpp
+class Solution {
+public:
+   vector<string>split(string s, string delemt = " ") {
+	vector<string> revers;
+	string word = "";
+	int pos;
+	while ((pos=s.find(delemt)) != std::string::npos) {
+
+		word = s.substr(0, pos);
+		if (word != "")
+		{
+			revers.push_back(word);
+		}
+		s.erase(0, pos + delemt.length());
+
+
+	}if (s != "") {
+		revers.push_back(s);
+	}
+	return revers;
+}
+
+
+string reverseWords(string s) {
+	vector<string>Vstr = split(s);
+	string Delim = " ";
+	string rev = "";
+	int right = Vstr.size() - 1;
+	while (!Vstr.empty()) {
+		rev += Vstr[right] + Delim;
+		Vstr.pop_back();
+		right--;
+	}
+	return rev.substr(0, rev.length() - Delim.length());
+}
 };
 ```
 ---
