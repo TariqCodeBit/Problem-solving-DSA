@@ -20,6 +20,7 @@
 - [Problem 16: Search a 2D Matrix](#problem-16-search-a-2d-matrix)
 - [Problem 17: Factorial Trailing Zeroes](#problem-17-factorial-trailing-zeroes)
 - [Problem 18: Reverse Words in a String](#problem-18-reverse-words-in-a-string)
+- [Problem 19: Valid Palindrome](#problem-19-valid-palindrome)
 
 
 
@@ -988,6 +989,71 @@ string reverseWords(string s) {
 	}
 	return rev.substr(0, rev.length() - Delim.length());
 }
+};
+```
+---
+## Problem 19: Valid Palindrome
+- **Name**: ***125. Valid Palindrome***
+- **Link**: [Problem Link](https://leetcode.com/problems/valid-palindrome/description/?envType=study-plan-v2&envId=top-interview-150)
+- **Category**: ****Two Pointers / String****
+- **Level**:  *****Easy*****
+
+---
+
+## Brief Description
+- **Given a string s, return true if it is a palindrome, or false otherwise.**
+- **Input: s = "A man, a plan, a canal: Panama"**
+  - **Output: true**
+    - **Explanation: "amanaplanacanalpanama" is a palindrome.**
+
+- **Input: s = "race a car"**
+  - **Output: false**
+    - **Explanation: "raceacar" is not a palindrome.**
+---
+## Core Mathematical Idea
+
+---
+## Solution steps
+ 
+---
+## Note
+```cpp
+isalnum (char) // if the character is alphabetic (a-z, A-Z) or numeric (0-9) return true else return false (!,@,#,$,^,,,.)
+```
+ - **The Time Complexity is O(N)**
+  - **The Space Complexity is O(1)**
+
+---
+
+## Code in [ C++]
+
+### Code
+
+
+
+```cpp
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        
+        int left=0;
+        int right=s.length()-1;
+        while(left < right){
+
+                    while(left < right && ! isalnum(s[left])){
+                        left++;
+                    }
+                    while(left < right && ! isalnum(s[right])){
+                        right--;
+                    }
+                    if(tolower(s[left]) != tolower(s[right]))
+                    return false;
+
+            right--;
+            left++;
+        }
+        return true;
+    }
 };
 ```
 ---
