@@ -21,7 +21,8 @@
 - [Problem 17: Factorial Trailing Zeroes](#problem-17-factorial-trailing-zeroes)
 - [Problem 18: Reverse Words in a String](#problem-18-reverse-words-in-a-string)
 - [Problem 19: Valid Palindrome](#problem-19-valid-palindrome)
-
+- [Problem 20: Excel Sheet Column Title](#problem-20-excel-sheet-column-title)
+-[Problem 21: Calculate Score After Performing Instructions](#problem-21-calculate-score-after-performing-instructions)
 
 
 
@@ -1055,5 +1056,137 @@ public:
         return true;
     }
 };
+```
+---
+## Problem 20: Excel Sheet Column Title
+- **Name**: ***168. Excel Sheet Column Title***
+- **Link**: [Problem Link](https://leetcode.com/problems/excel-sheet-column-title/description/)
+- **Category**: ****Math / String****
+- **Level**:  *****Easy*****
+
+---
+
+## Brief Description
+ - **Given an integer columnNumber, return its corresponding column title as it appears in an Excel sheet.**
+  - **Input: columnNumber = 1**
+    - **Output: "A"**
+  - **Input: columnNumber = 28**
+    - **Output: "AB"**
+---
+## Core Mathematical Idea
+
+---
+## Solution steps
+ 
+---
+## Note
+
+ - **The Time Complexity is O(log(N))**
+  - **The Space Complexity is O(1)**
+
+---
+
+## Code in [ C++]
+
+### Code
+
+
+
+```cpp
+class Solution {
+public:
+    string convertToTitle(int columnNumber) {
+        
+        string str="";
+        int rev=0;
+        while(columnNumber > 0){
+            columnNumber--;
+            rev=columnNumber % 26;
+            str=char('A'+rev)+str;
+            columnNumber/=26;
+        }
+        return str;
+    }
+};
+```
+---
+## Problem 21: Calculate Score After Performing Instructions
+- **Name**: ***3522. Calculate Score After Performing Instructions***
+- **Link**: [Problem Link](https://leetcode.com/problems/calculate-score-after-performing-instructions/description/)
+- **Category**: ****!****
+- **Level**:  *****Medium*****
+
+---
+
+## Brief Description
+- **You start at the first instruction at index i = 0 with an initial score of 0.**
+- **If instructions[i] is "add":**
+   - **Add values[i] to your score.**
+   - **Move to the next instruction (i + 1).**
+- **If instructions[i] is "jump":**
+  - **Move to the instruction at index (i + values[i]) without modifying your score.
+The process ends when you either:**
+
+- **Go out of bounds (i.e., i < 0 or i >= n), or**
+- **Attempt to revisit an instruction that has been previously executed. The revisited instruction is not executed.**
+**Return your score at the end of the process.**
+
+
+- **Input: instructions = ["jump","add","add","jump","add","jump"], values = [2,1,3,1,-2,-3]**
+
+  - **Output: 1**
+---
+## Core Mathematical Idea
+
+---
+## Solution steps
+ 
+---
+## Note
+
+ - **The Time Complexity is O(N)**
+  - **The Space Complexity is O(N)**
+
+---
+
+## Code in [ C++]
+
+### Code
+
+
+
+```cpp
+class Solution {
+public:
+    long long calculateScore(vector<string>& instructions, vector<int>& values) {
+                long long score = 0;
+        vector<bool> visited(values.size(), false); 
+        vector<bool> added(values.size(), false);  
+        int i = 0;
+
+        while (i < values.size()) {
+            if (i < 0 || i >= values.size()) {
+                return -1;
+            }
+            if (visited[i]) { 
+                return score; 
+            }
+            visited[i] = true; 
+
+            if (instructions[i] == "jump") {
+                i += values[i]; 
+            }
+            else { 
+                if (!added[i]) { 
+                    score += values[i];
+                    added[i] = true;
+                }
+                i++; 
+            }
+        }
+        return score;
+    }
+};
+
 ```
 ---
