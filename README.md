@@ -22,7 +22,8 @@
 - [Problem 18: Reverse Words in a String](#problem-18-reverse-words-in-a-string)
 - [Problem 19: Valid Palindrome](#problem-19-valid-palindrome)
 - [Problem 20: Excel Sheet Column Title](#problem-20-excel-sheet-column-title)
--[Problem 21: Calculate Score After Performing Instructions](#problem-21-calculate-score-after-performing-instructions)
+- [Problem 21: Calculate Score After Performing Instructions](#problem-21-calculate-score-after-performing-instructions)
+- [Problem 22: Plus One](#problem-22-plus-one)
 
 
 
