@@ -1190,3 +1190,73 @@ public:
 
 ```
 ---
+## Problem 22: Plus One
+- **Name**: ***66. Plus One***
+- **Link**: [Problem Link](https://leetcode.com/problems/plus-one/)
+- **Category**: ****Array / Math****
+- **Level**:  *****Easy*****
+
+---
+
+## Brief Description
+- **Input: digits = [1,2,3]**
+   - **Output: [1,2,4]**
+     - **Explanation: The array represents the integer 123.**
+     - **Incrementing by one gives 123 + 1 = 124.**
+     - **Thus, the result should be [1,2,4].**
+
+- **Input: digits = [9]**
+   - **Output: [1,0]**
+      - **Explanation: The array represents the integer 9.**
+      - **Incrementing by one gives 9 + 1 = 10.**
+      - **Thus, the result should be [1,0].**
+ 
+
+---
+## Core Mathematical Idea
+```cpp
+ int lenDigit= floor(log10(abs(Number)))+1; // return length the Number using Math
+```
+---
+## Solution steps
+ 
+---
+## Note 
+
+
+ - **The Time Complexity is O(N)**
+  - **The Space Complexity is O(1)**
+
+---
+
+## Code in [ C++]
+
+### Code
+
+
+
+```cpp
+
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+      
+        for (int i = digits.size() - 1; i >= 0; i--) {
+            // If the current digit is less than 9, increment it and return the result
+            if (digits[i] < 9) {
+                digits[i]++;
+                return digits; // No carry needed, so we can return immediately
+            }
+            // If the digit is 9, set it to 0 and continue to propagate the carry
+            else {
+                digits[i] = 0;
+            }
+        }
+        // If we exit the loop, all digits were 9, so add a 1 at the beginning
+        digits.insert(digits.begin(), 1);
+        return digits; 
+    }
+};
+
+```
+---
