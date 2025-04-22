@@ -24,6 +24,7 @@
 - [Problem 20: Excel Sheet Column Title](#problem-20-excel-sheet-column-title)
 - [Problem 21: Calculate Score After Performing Instructions](#problem-21-calculate-score-after-performing-instructions)
 - [Problem 22: Plus One](#problem-22-plus-one)
+- [Problem 23: Circular Sentence](#problem-23-circular-sentence)
 
 
 
@@ -1256,6 +1257,61 @@ public:
         // If we exit the loop, all digits were 9, so add a 1 at the beginning
         digits.insert(digits.begin(), 1);
         return digits; 
+    }
+};
+
+```
+---
+## Problem 23: Circular Sentence
+- **Name**: ***2490. Circular Sentence***
+- **Link**: [Problem Link](https://leetcode.com/problems/circular-sentence/description/)
+- **Category**: ****String****
+- **Level**:  *****Easy*****
+
+---
+
+## Brief Description
+- **Input: sentence = "leetcode exercises sound delightful"**
+    - **Output: true**
+      - **Explanation: The words in sentence are ["leetcode", "exercises", "sound", "delightful"].**
+      -  **exercises's last character is equal to sound's first character.**
+      -  **leetcode's last character is equal to exercises's first character.**
+      -  **sound's last character is equal to delightful's first character.**
+      -  **delightful's last character is equal to leetcode's first character.**
+      -  **The sentence is circular.**
+
+
+---
+## Core Mathematical Idea
+
+---
+## Solution steps
+- **using  a single space. ' '**
+ 
+---
+## Note 
+
+
+ - **The Time Complexity is O(N)**
+  - **The Space Complexity is O(1)**
+
+---
+
+## Code in [ C++]
+
+### Code
+
+
+
+```cpp
+class Solution {
+public:
+    bool isCircularSentence(string sentence) {
+       
+       for(int i=0;i < sentence.size();i++)
+        if(sentence[i]== ' ' && sentence[i+1]!=sentence[i-1])return false;
+       
+       return sentence[0] == sentence.back();
     }
 };
 
